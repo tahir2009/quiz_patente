@@ -14,13 +14,13 @@
                                 </div>
                                 <p class="card-category">No Of Schools</p>
                                 <h4 class="card-title">Active
-                                    <small>1</small>
+                                    <small>{{ \App\Admin::where('type', 'school')->where('blocked', 0)->count() }}</small>
                                 </h4>
                             </div>
                             <div class="card-footer">
                                 <div class="stats">
                                     <i class="material-icons text-success">warning</i>
-                                    <a href="tables.html">Click to view</a>
+                                    <a href="{{ route('school_account.index') }}">Click to view</a>
                                 </div>
                             </div>
                         </div>
@@ -33,13 +33,13 @@
                                 </div>
                                 <p class="card-category">No Of Packages</p>
                                 <h4 class="card-title">Packages
-                                    <small>2</small>
+                                    <small>{{\App\Package::all()->count()}}</small>
                                 </h4>
                             </div>
                             <div class="card-footer">
                                 <div class="stats">
                                     <i class="material-icons">store</i>
-                                    <a href="tables.html">Click to view</a>
+                                    <a href="{{ route('school_account.index') }}">Click to view</a>
                                 </div>
                             </div>
                         </div>
@@ -51,12 +51,12 @@
                                     <i class="material-icons">info_outline</i>
                                 </div>
                                 <p class="card-category">Blocked Schools</p>
-                                <h4 class="card-title">0</h4>
+                                <h4 class="card-title">{{ \App\Admin::where('type', 'school')->where('blocked', 1)->count() }}</h4>
                             </div>
                             <div class="card-footer">
                                 <div class="stats">
                                     <i class="material-icons text-danger">delete</i>
-                                    <a href="tables.html">Click to view</a>
+                                    <a href="{{ route('school_account.index') }}">Click to view</a>
                                 </div>
                             </div>
                         </div>
@@ -68,12 +68,12 @@
                                     <i class="material-icons">verified_user</i>
                                 </div>
                                 <p class="card-category">No Of Licenses</p>
-                                <h4 class="card-title">2</h4>
+                                <h4 class="card-title">{{\App\License::all()->count()}}</h4>
                             </div>
                             <div class="card-footer">
                                 <div class="stats">
                                     <i class="material-icons">store</i>
-                                    <a href="tables.html">Licenses</a>
+                                    <a href="{{ route('school_account.index') }}">Licenses</a>
                                 </div>
                             </div>
                         </div>

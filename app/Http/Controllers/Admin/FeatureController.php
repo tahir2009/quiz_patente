@@ -19,9 +19,10 @@ class FeatureController extends Controller
      */
     public function index()
     {
+        $features = Feature::all()->groupBy('description');
 
 
-        return view('admin.feature.index');
+        return view('admin.feature.index')->with('features', $features);
     }
 
     /**

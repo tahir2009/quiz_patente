@@ -48,7 +48,6 @@ class SchoolAccountController extends Controller
             'school_type' => 'required|in:driving,theory,both',
             'latitude' => 'required',
             'longitude' => 'required',
-            'display_image' => 'nullable|image',
             'date' => 'required|integer',
             'nationalities' => 'required'
         ]);
