@@ -55,7 +55,7 @@ class FeatureController extends Controller
             'start_lesson' => 'nullable',
             'end_lesson' => 'nullable'
         ]);
-
+           
         if ($request->for === 'quiz' or $request->for === 'video') {
             if (!$request->start_chapter) {
                 $alert['type'] = 'danger';

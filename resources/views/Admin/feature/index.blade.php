@@ -14,7 +14,7 @@
                             <h4 class="card-title ">Features</h4>
                             <p class="card-category">Features list</p>
                         </div>
-                        <a href="new-features.html" class="btn pull-right">New Features</a>
+                        <a href="{{ route('feature.create')}}" class="btn pull-right">New Features</a>
                     </div>
 
                     <div class="card-body">

@@ -14,13 +14,18 @@
                             <p class="card-category">New Features</p>
                         </div>
                         <div class="card-body">
-                            <form>
+                            <form action="{{ url('admin/feature') }}" enctype="multipart/form-data" method="POST">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="marginex12"></div>
                                         <div class="form-group">
                                             <label class="bmd-label-floating">Description</label>
-                                            <input type="text" class="form-control">
+                                            <input type="text" name="description" value="{{ old('description') }}" class="form-control {{ $errors->has('description') ? ' is_invalid' : ''}}">
+                                            @if($errors->has('description'))
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('description') }}</strong>
+                                            </span>
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -29,22 +34,18 @@
                                             <label class="bmd-label-floating">Language</label>
                                             <div class="marginex12"></div>
                                             <div class="select-menu">
-                                                <select class="selecter" name="nationalities[]" multiple="multiple">
-                                                    <option value="">Choose...</option>
-                                                    <option value="1">italiano</option>
-                                                    <option value="2">francese</option>
-                                                    <option value="3">tedesco</option>
-                                                    <option value="4">urdu</option>
-                                                    <option value="5">pashto</option>
-                                                    <option value="6">bangla</option>
-                                                    <option value="7">inglese</option>
-                                                    <option value="8">arabo</option>
-                                                    <option value="9">spagnolo</option>
-                                                    <option value="10">cinese</option>
-                                                    <option value="11">rumeno</option>
-                                                    <option value="12">albanese</option>
-                                                    <option value="13">russo</option>
+                                                <select class="selecter form-control {{ $errors->has('language_id') ? ' is-invalid' : '' }}" name="language_id" multiple="multiple">
+                                                    <option value="language_id">Choose...</option>
+                                                    <option value="all">All</option>
+                                                    @foreach($languages as $language)
+                                                        <option value="{{ $language->id }}">{{ $language->language }}</option>
+                                                     @endforeach
                                                 </select>
+                                                @if($errors->has('language_id'))
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $errors->first('language_id') }}</strong>
+                                                </span>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -54,12 +55,17 @@
                                             <label class="bmd-label-floating">For</label>
                                             <div class="marginex12"></div>
                                             <div class="select-menu">
-                                                <select class="selecter" name="nationalities[]" multiple="multiple">
+                                                <select  name="for" class="selecter form-control {{ $errors->has('for') ? ' is-invalid' : '' }}" multiple="multiple">
                                                     <option value="">Choose...</option>
                                                     <option value="quiz">Quiz</option>
                                                     <option value="book">Book</option>
                                                     <option value="video">Video</option>
                                                 </select>
+                                                @if($errors->has('for'))
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $errors->first('for') }}</strong>
+                                                </span>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -69,32 +75,17 @@
                                             <label class="bmd-label-floating">Start</label>
                                             <div class="marginex12"></div>
                                             <div class="select-menu">
-                                                <select class="selecter" name="nationalities[]" multiple="multiple">
-                                                    <option value="">Choose...</option>
-                                                    <option value="1">1 Definizioni generali - Doveri nell'uso della
-                                                        strada
-                                                    </option>
-                                                    <option value="2">2 Segnali di pericolo</option>
-                                                    <option value="3">3 Segnali di divieto</option>
-                                                    <option value="4">4 Segnali di obbligo</option>
-                                                    <option value="5">5 Segnali di precedenza</option>
-                                                    <option value="6">6 Segnaletica orizzontale</option>
-                                                    <option value="7">7 Segnalazioni semaforiche e degli agenti del
-                                                        traffico
-                                                    </option>
-                                                    <option value="8">8 Segnali di indicazione</option>
-                                                    <option value="9">9 Segnali complementari - Segnali temporanei di
-                                                        cantiere
-                                                    </option>
-                                                    <option value="10">10 Pannelli integrativi dei segnali</option>
-                                                    <option value="11">11 Pericolo e intralcio alla circolazione -
-                                                        Regolazione e limiti di velocità
-                                                    </option>
-                                                    <option value="12">12 Distanza di sicurezza</option>
-                                                    <option value="13">13 Norme varie sulla circolazione dei veicoli -
-                                                        Visibilità dal posto di guida
-                                                    </option>
+                                                <select class="selecter form-control {{ $errors->has('start_chapter') ? ' is-invalid' : '' }}" name="start_chapter" multiple="multiple">
+                                                    <option value="start_chapter">Choose...</option>
+                                                    @foreach($chapters as $start)
+                                                    <option value="{{ $start->id }}">{{ $start->name }}</option>
+                                                 @endforeach                       
                                                 </select>
+                                                @if($errors->has('start_chapter'))
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $errors->first('start_chapter') }}</strong>
+                                                </span>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -104,32 +95,17 @@
                                             <label class="bmd-label-floating">End</label>
                                             <div class="marginex12"></div>
                                             <div class="select-menu">
-                                                <select class="selecter" name="nationalities[]" multiple="multiple">
-                                                    <option value="">Choose...</option>
-                                                    <option value="1">1 Definizioni generali - Doveri nell'uso della
-                                                        strada
-                                                    </option>
-                                                    <option value="2">2 Segnali di pericolo</option>
-                                                    <option value="3">3 Segnali di divieto</option>
-                                                    <option value="4">4 Segnali di obbligo</option>
-                                                    <option value="5">5 Segnali di precedenza</option>
-                                                    <option value="6">6 Segnaletica orizzontale</option>
-                                                    <option value="7">7 Segnalazioni semaforiche e degli agenti del
-                                                        traffico
-                                                    </option>
-                                                    <option value="8">8 Segnali di indicazione</option>
-                                                    <option value="9">9 Segnali complementari - Segnali temporanei di
-                                                        cantiere
-                                                    </option>
-                                                    <option value="10">10 Pannelli integrativi dei segnali</option>
-                                                    <option value="11">11 Pericolo e intralcio alla circolazione -
-                                                        Regolazione e limiti di velocità
-                                                    </option>
-                                                    <option value="12">12 Distanza di sicurezza</option>
-                                                    <option value="13">13 Norme varie sulla circolazione dei veicoli -
-                                                        Visibilità dal posto di guida
-                                                    </option>
+                                                <select class="selecter form-control {{ $errors->has('end_chapter') ? ' is-invalid' : '' }}" name="end_chapter" multiple="multiple">
+                                                    <option value="end_chapter">Choose...</option>
+                                                    @foreach($chapters as $end)
+                                                    <option value="{{ $end->id }}">{{ $end->name }}</option>
+                                                 @endforeach
                                                 </select>
+                                                @if($errors->has('end_chapter'))
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $errors->first('end_chapter') }}</strong>
+                                                </span>
+                                                @endif
                                             </div>
                                         </div>
                                         <button type="submit" class="btn btn-primary pull-right">create Features
@@ -137,6 +113,7 @@
                                     </div>
                                 </div>
                                 <div class="clearfix"></div>
+                                @csrf
                             </form>
                         </div>
                     </div>

@@ -2,7 +2,7 @@
 
 @section('create_school_nav', 'active')
 
-@section('title', 'Admin | School Accounts')
+@section('title', 'Admin | School Accounts update')
 
 
 @section('content')
@@ -184,7 +184,7 @@
                                     </div>
                                     <div class="col-md-12">
                                         <div class="map_canvas" id="map"></div>
-                                        <button type="submit" class="btn btn-primary pull-right">create Profile</button>
+                                        <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
                                     </div>
                                 </div>
                                 <div class="clearfix"></div>

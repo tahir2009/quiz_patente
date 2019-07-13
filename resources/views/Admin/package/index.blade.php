@@ -15,7 +15,7 @@
                                 <h4 class="card-title ">Packages</h4>
                                 <p class="card-category">Packages list</p>
                             </div>
-                            <a href="create-package.html" class="btn pull-right">New Package</a>
+                            <a href="{{route('package.create')}}" class="btn pull-right">New Package</a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive extra-feature" style="overflow:visible;">

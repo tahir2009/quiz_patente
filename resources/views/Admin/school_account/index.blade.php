@@ -16,7 +16,7 @@
                                 <h4 class="card-title ">School Accounts </h4>
                                 <p class="card-category">Table list</p>
                             </div>
-                            <a href="create-account.html" class="btn pull-right">create account</a>
+                            <a href="{{ route('school_account.create')}}" class="btn pull-right">create account</a>
                         </div>
 
                         <div class="card-body">
@@ -69,7 +69,7 @@
                                             </a>
                                         </td>
                                         <td>
-                                            Registrati gratis a quizpatenteonline.it, migliorerai la tua preparazione per l'esame di teoria a 40 domande. A tua disposizione un pannello personalizzato
+                                            Registrati gratis a quizpatenteonline.it, migliorerai la tua preparazione per lesame di teoria a 40 domande. A tua disposizione un pannello personalizzato
                                         </td>
                                         <td>
                                             <a href="view-students.html">View students</a>
@@ -87,7 +87,7 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <a href="" class="btn-sm1"><i class="material-icons">edit</i></a>
+                                            <a href="{{ route('school_account.edit', $school_account->id)}}" class="btn-sm1"><i class="material-icons">edit</i></a>
                                             <form  method="post"
                                                    action="{{ route('school_account.destroy', $school_account->id) }}"
                                                    onsubmit="return confirm('Do you really want to delete this account?');">
