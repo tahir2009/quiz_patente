@@ -40,6 +40,7 @@ class SchoolAccountController extends Controller
      */
     public function store(Request $request)
     {
+        
         $request->validate([
             'name' => 'required|string|max:191',
             'email' => 'required|email|unique:admins|max:191',
@@ -48,10 +49,10 @@ class SchoolAccountController extends Controller
             'school_type' => 'required|in:driving,theory,both',
             'latitude' => 'required',
             'longitude' => 'required',
-            'date' => 'required|integer',
+            'address'  =>   'nullable',
+            'date' => 'required',
             'nationalities' => 'required'
         ]);
-
         $request['password'] = bcrypt($request->password);
         $request['type'] = 'school';
 

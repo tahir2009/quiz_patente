@@ -65,7 +65,7 @@
                                             {{$feature[0]->for}}
                                         </td>
                                         <td>
-                                            <a href="" class="btn-sm1"><i class="material-icons">edit</i></a>
+                                            <a href="{{ route('feature.edit', $feature[0]->id)}}" class="btn-sm1"><i class="material-icons">edit</i></a>
                                             <form  method="post"
                                                   action="{{ route('feature.destroy', $feature[0]->id) }}"
                                                   onsubmit="return confirm('Do you really want to delete this feature?');">

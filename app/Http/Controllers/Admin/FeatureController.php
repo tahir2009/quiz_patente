@@ -55,8 +55,16 @@ class FeatureController extends Controller
             'start_lesson' => 'nullable',
             'end_lesson' => 'nullable'
         ]);
+
+        if (!$request->description) {
+            $alert['type'] = 'danger';
+            $alert['message'] = 'same name not allow';
+
+            return redirect()->back()->with('alert', $alert)->withInput();
+        }
            
         if ($request->for === 'quiz' or $request->for === 'video') {
+            
             if (!$request->start_chapter) {
                 $alert['type'] = 'danger';
                 $alert['message'] = 'start limit is required';
@@ -163,6 +171,7 @@ class FeatureController extends Controller
      */
     public function update(Request $request, Feature $feature)
     {
+        
         $request->validate([
             'language_id' => 'required|integer',
             'description' => 'required|string|max:191',
@@ -172,7 +181,7 @@ class FeatureController extends Controller
         ]);
 
         $feature->update($request->all());
-
+       
         $alert['type'] = 'success';
         $alert['message'] = 'feature  updated';
         return redirect()->route('feature.index')->with('alert', $alert);

@@ -41,34 +41,42 @@
                                     </th>
                                     </thead>
                                     <tbody>
+                                    @foreach ($packages as $index =>$package)
                                     <tr>
                                         <td>
-                                            1
+                                        {{++$index}}  
                                         </td>
                                         <td>
-                                            Quiz Urdu_punjabi_abc complete
+                                            {{$package->description}}
                                         </td>
                                         <td>
                                             <div class="select-menu">
                                                 <select class="selecter">
                                                     <option selected="selected">Features</option>
-                                                    <option>Quiz Quiz Urdu_punjabi_abc complete  Quiz Urdu_punjabi_abc complete  Urdu_punjabi_abc complete  </option>
-                                                    <option>Quiz Quiz Urdu_punjabi_abc complete   Quiz Urdu_punjabi_abc complete   Urdu_punjabi_abc complete  </option>
-                                                    <option>Quiz Urdu_punjabi_abc complete  </option>
+                                                    @foreach ($package -> features -> groupBy('description') as $index=> $features)
+                                                            <option>{{$index}}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </td>
                                         <td>
-                                            30
+                                            {{$package->price}}
                                         </td>
                                         <td>
-                                            6
+                                            {{$package->duration}}
                                         </td>
                                         <td>
                                             <a href="" class="btn-sm1"><i class="material-icons">edit</i></a>
-                                            <a href="" class="btn-sm1"><i class="material-icons">delete</i></a>
+                                         <form  method="post"
+                                            action="{{ route('package.destroy', $package->id) }}"
+                                            onsubmit="return confirm('Do you really want to delete this feature?');">
+                                          @csrf
+                                          @method('delete')
+                                          <button  class="btn-sm1"><i class="material-icons">delete</i></button>
+                                      </form>
                                         </td>
                                     </tr>
+                                @endforeach
 {{--                                    <tr>--}}
 {{--                                        <td>--}}
 {{--                                            2--}}

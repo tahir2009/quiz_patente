@@ -40,13 +40,14 @@ class PackageController extends Controller
      */
     public function store(Request $request)
     {
+        
         $request->validate([
             'description' => 'required|string|max:191',
             'price' => 'required|integer',
-            'duration' => 'required|integer',
+            'duration' => 'required|string',
             'feature_descriptions' => 'required|array'
         ]);
-
+        
         $package = Package::create($request->all());
 
         foreach ($request->feature_descriptions as $feature_description) {

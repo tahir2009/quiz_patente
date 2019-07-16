@@ -27,3 +27,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::resource('license', 'LicenseController');
     Route::resource('feature', 'FeatureController');
 });
+
+Route::resource('comments', 'CommentController');
+

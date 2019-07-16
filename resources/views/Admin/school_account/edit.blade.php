@@ -16,12 +16,14 @@
                             <p class="card-category">Create a profile</p>
                         </div>
                         <div class="card-body">
-                            <form action="{{ url('admin/school_account') }}" enctype="multipart/form-data" method="POST">
+                            <form action="{{ url('admin/school_account',$school_account->id) }}" enctype="multipart/form-data" method="POST">
+                                    {{ method_field('PUT') }}
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">Name</label>
-                                            <input type="text" value="{{ old('name') }}" name="name" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}">
+                                            
+                                            <input type="text" value="{{ $school_account->name }}" name="name" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}">
                                             @if($errors->has('name'))
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $errors->first('name') }}</strong>
@@ -33,7 +35,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">Email address</label>
-                                            <input type="email" name="email" value="{{ old('email') }}" class="form-control {{ $errors->has('email') ? ' is-invalid' : ''}}">
+                                            <input type="email" name="email" value="{{ $school_account->email }}" class="form-control {{ $errors->has('email') ? ' is-invalid' : ''}}">
                                             @if($errors->has('email'))
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $errors->first('email') }}</strong>
@@ -46,7 +48,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">Password</label>
-                                            <input type="password" value="{{ old('password') }}" name="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : ''}}">
+                                            <input type="password" value="{{ $school_account->password }}" name="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : ''}}">
                                             @if($errors->has('password'))
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $errors->first('password') }}</strong>
@@ -57,7 +59,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">Confirm Password</label>
-                                            <input type="password" value="{{ old('password_confirmation') }}" name="password_confirmation" class="form-control {{ $errors->has('password_confirmation') ? ' is-invalid' : ''}}">
+                                            <input type="password" value="{{ $school_account->password_confirmation }}" name="password_confirmation" class="form-control {{ $errors->has('password_confirmation') ? ' is-invalid' : ''}}">
                                             @if($errors->has('password_confirmation'))
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $errors->first('password_confirmation') }}</strong>
@@ -72,11 +74,11 @@
                                         <div class="form-group">
                                             <label class="bmd-label-floating">Package</label>
                                             <div class="select-menu">
-                                                <select class="selecter form-control {{ $errors->has('package') ? ' is-invalid' : ''}}" name="package">
+                                                <select class="selecter form-control {{ $errors->has('package') ? ' is-invalid' : ''}}" name="package" >
                                                     <option selected="selected">Choose...</option>
-                                                    <option value="free" {{ old('package')==='free' ? 'selected' : '' }}>Free</option>
-                                                    <option value="silver" {{ old('package')==='silver' ? 'selected' : '' }}>Silver</option>
-                                                    <option value="gold" {{ old('package')==='gold' ? 'selected' : '' }}>Gold</option>
+                                                    <option value="free" {{ $school_account->package ==='free' ? 'selected' : '' }}>Free</option>
+                                                    <option value="silver" {{ $school_account->package ==='silver' ? 'selected' : '' }}>Silver</option>
+                                                    <option value="gold" {{ $school_account->package ==='gold' ? 'selected' : '' }}>Gold</option>
                                                 </select>
                                                 @if($errors->has('package'))
                                             <span class="invalid-feedback" role="alert">
@@ -93,9 +95,9 @@
                                             <div class="select-menu">
                                                 <select class="selecter form-control {{ $errors->has('school_type') ? ' is-invalid' : ''}}" name="school_type" >
                                                     <option>Choose...</option>
-                                                    <option  value="driving" {{ old('school_type')==='driving' ? 'selected' : '' }} >Driving</option>
-                                                    <option value="theory" {{ old('school_type')==='theory' ? 'selected' : '' }}>Theory</option>
-                                                    <option value="both" {{ old('school_type')==='both' ? 'selected' : '' }}>Both</option>
+                                                    <option  value="driving" {{ $school_account->school_type==='driving' ? 'selected' : '' }} >Driving</option>
+                                                    <option value="theory" {{ $school_account->school_type==='theory' ? 'selected' : '' }}>Theory</option>
+                                                    <option value="both" {{ $school_account->school_type==='both' ? 'selected' : '' }}>Both</option>
                                                 </select>
                                                 @if($errors->has('school_type'))
                                                 <span class="invalid-feedback" role="alert">
@@ -110,7 +112,7 @@
                                         <div class="form-group width100">
                                             <label class="bmd-label-floating">Package date</label>
                                             <div class="marginex12"></div>
-                                            <input type="text" value="{{ old('date') }}" name="date" class="date-view1 form-control {{ $errors->has('date') ? ' is-invalid' : '' }}" />
+                                            <input type="text" value="{{ $school_account->date }}" name="date" class="date-view1 form-control {{ $errors->has('date') ? ' is-invalid' : '' }}" />
                                             @if($errors->has('date'))
                                             <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $errors->first('date') }}</strong>
@@ -123,7 +125,7 @@
                                         <div class="marginex8"></div>
                                         <div class="form-group">
                                             <label class="bmd-label-floating width100">Phone number</label>
-                                            <input type="number" value="{{ old('phone')}}"  name="phone" class="form-control {{ $errors->has('phone') ? ' is-invalid' : '' }}">
+                                            <input type="number" value="{{ $school_account->phone }}"  name="phone" class="form-control {{ $errors->has('phone') ? ' is-invalid' : '' }}">
                                             @if($errors->has('phone'))
                                             <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $errors->first('phone') }}</strong>
@@ -155,7 +157,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">Type in an address</label>
-                                            <input id="geocomplete" name="address" class="form-control {{ $errors->has('address') ? ' is-invalid' : '' }}" type="text" placeholder="" value="{{ old('address') }}" />
+                                            <input id="geocomplete" name="address" class="form-control {{ $errors->has('address') ? ' is-invalid' : '' }}" type="text" placeholder="" value="{{ $school_account->address }}" />
                                             <input id="find" class="search" type="button"  value="find"/>
                                             @if($errors->has('address'))
                                             <span class="invalid-feedback" role="alert">
@@ -167,7 +169,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">latitude</label>
-                                            <input  name="latitude" value=" {{ old('latitude')}} " type="text" class="form-control {{ $errors->has('latitude') ? ' is-invalid' : '' }}" id="latitude">
+                                            <input  name="latitude" value=" {{ $school_account->latitude}} " type="text" class="form-control {{ $errors->has('latitude') ? ' is-invalid' : '' }}" id="latitude">
                                             @if($errors->has('latitude'))
                                             <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $errors->first('latitude') }}</strong>
@@ -178,7 +180,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">longitude</label>
-                                            <input  name="longitude" type="text" value="{{ old('longitude') }}" class="form-control {{ $errors->has('longitude') ? ' is-invalid' : '' }}" id="longitude">
+                                            <input  name="longitude" type="text" value="{{ $school_account->longitude }}" class="form-control {{ $errors->has('longitude') ? ' is-invalid' : '' }}" id="longitude">
                                         </div>
                                         <div class="mb30"></div>
                                     </div>
