@@ -22,7 +22,7 @@
                                             <label class="bmd-label-floating">Description</label>
                                             <input type="text" name="description" value="{{ old('description') }}" class="form-control {{ $errors->has('description') ? ' is_invalid' : ''}}">
                                             @if($errors->has('description'))
-                                            <span class="invalid-feedback" role="alert">
+                                            <span class="alert alert-danger" role="alert">
                                                 <strong>{{ $errors->first('description') }}</strong>
                                             </span>
                                             @endif
@@ -43,7 +43,7 @@
                                                      @endforeach
                                                 </select>
                                                 @if($errors->has('language_id'))
-                                                <span class="invalid-feedback" role="alert">
+                                                <span class="alert alert-danger" role="alert">
                                                     <strong>{{ $errors->first('language_id') }}</strong>
                                                 </span>
                                                 @endif
@@ -63,7 +63,7 @@
                                                     <option value="video">Video</option>
                                                 </select>
                                                 @if($errors->has('for'))
-                                                <span class="invalid-feedback" role="alert">
+                                                <span class="alert alert-danger" role="alert">
                                                     <strong>{{ $errors->first('for') }}</strong>
                                                 </span>
                                                 @endif
@@ -83,13 +83,14 @@
                                                  @endforeach                       
                                                 </select>
                                                 @if($errors->has('start_chapter'))
-                                                <span class="invalid-feedback" role="alert">
+                                                <span class="alert alert-danger" role="alert">
                                                     <strong>{{ $errors->first('start_chapter') }}</strong>
                                                 </span>
                                                 @endif
                                             </div>
                                         </div>
                                     </div>
+                                    
                                     <div class="col-md-6">
                                         <div class="marginex12"></div>
                                         <div class="form-group">
@@ -103,7 +104,7 @@
                                                  @endforeach
                                                 </select>
                                                 @if($errors->has('end_chapter'))
-                                                <span class="invalid-feedback" role="alert">
+                                                <span class="alert alert-danger" role="alert">
                                                     <strong>{{ $errors->first('end_chapter') }}</strong>
                                                 </span>
                                                 @endif

@@ -179,7 +179,7 @@ class FeatureController extends Controller
             'chapter_id' => 'required|integer',
             'lesson_id' => 'required|integer'
         ]);
-
+        
         $feature->update($request->all());
        
         $alert['type'] = 'success';

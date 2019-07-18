@@ -61,7 +61,7 @@
                           @endif
                       </div>
                     </div>
-                    <button type="submit" class="btn btn-primary pull-right">Update license</button> 
+                    <button type="submit" class="btn btn-primary pull-right">Package</button> 
                   </div>
                 </div>
                 <div class="clearfix"></div>

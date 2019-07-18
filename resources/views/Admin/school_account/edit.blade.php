@@ -112,7 +112,7 @@
                                         <div class="form-group width100">
                                             <label class="bmd-label-floating">Package date</label>
                                             <div class="marginex12"></div>
-                                            <input type="text" value="{{ $school_account->date }}" name="date" class="date-view1 form-control {{ $errors->has('date') ? ' is-invalid' : '' }}" />
+                                            <input type="text" value="{{ $school_account->duration }}" name="date" class="date-view1 form-control {{ $errors->has('date') ? ' is-invalid' : '' }}" />
                                             @if($errors->has('date'))
                                             <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $errors->first('date') }}</strong>

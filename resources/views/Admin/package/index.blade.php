@@ -66,7 +66,7 @@
                                             {{$package->duration}}
                                         </td>
                                         <td>
-                                            <a href="" class="btn-sm1"><i class="material-icons">edit</i></a>
+                                            <a href="{{ route('package.edit', $package->id)}}" class="btn-sm1"><i class="material-icons">edit</i></a>
                                          <form  method="post"
                                             action="{{ route('package.destroy', $package->id) }}"
                                             onsubmit="return confirm('Do you really want to delete this feature?');">
