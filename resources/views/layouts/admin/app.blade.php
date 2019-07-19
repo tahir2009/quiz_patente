@@ -31,11 +31,12 @@
         <div class="sidebar-wrapper">
             <ul class="nav">
                 <li class="@yield('dashboard_nav')">
-                    <a class="nav-link" href="{{ route('admin.home') }}">
+                    <a class="nav-link" href="{{ route('dashboard') }}">
                         <i class="material-icons">dashboard</i>
                         <p>Dashboard</p>
                     </a>
                 </li>
+
                 <li class="@yield('create_school_nav')">
                     <a class="nav-link" href="{{ route('school_account.create') }}">
                         <i class="material-icons">person</i>
@@ -66,6 +67,7 @@
                         <p>licenses</p>
                     </a>
                 </li>
+
             </ul>
         </div>
     </div>
