@@ -16,7 +16,7 @@ class LicenseController extends Controller
     public function index()
     {
         $licenses = License::where('admin_id', auth()->user()->id)->get();
-        return view('school.school_license.index')->with('licenses', $licenses);
+        return view('School.school_license.index')->with('licenses', $licenses);
     }
 
     /**
@@ -48,7 +48,7 @@ class LicenseController extends Controller
      */
     public function show(License $school_license)
     {
-        return view('school.school_license.view')->with('license', $school_license);
+        return view('School.school_license.view')->with('license', $school_license);
     }
 
     /**

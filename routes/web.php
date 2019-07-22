@@ -10,8 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 //Route::get('/', function () {
@@ -22,7 +20,7 @@ Route::get('login', 'LoginController@login_view')->name('login');
 Route::post('login', 'LoginController@login');
 Route::get('logout', 'LoginController@logout')->name('logout');
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware' => ['auth', 'admin']], function () {
 
 //    Route::get('/', 'HomeController@home')->name('admin.home');
     Route::resource('/', 'DashboardController');
@@ -32,8 +30,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::resource('license', 'LicenseController');
     Route::resource('feature', 'FeatureController');
 });
-Route::group(['prefix' => 'school', 'namespace' => 'School', 'middleware' => ['auth', 'school']], function () {
+Route::group(['prefix' => 'school', 'namespace' => 'School','middleware' => ['auth', 'school']], function () {
     Route::resource('/', 'DashboardController');
+//    Route::get('/', 'HomeController@home')->name('School.home');
     Route::resource('school_license', 'LicenseController');
     Route::resource('student', 'StudentController');
     Route::get('student/statistics/{student}', 'StudentController@stats')->name('student.stats');

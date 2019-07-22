@@ -24,7 +24,7 @@ class CreateAdminsTable extends Migration
             $table->string('address')->nullable();
             $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();
-            $table->enum('type', ['admin', 'school'])->default('school');
+            $table->enum('type', ['admin', 'School'])->default('School');
             $table->enum('package', ['free', 'silver', 'golden'])->nullable();
             $table->enum('school_type', ['theory', 'driving', 'both'])->nullable();
             $table->tinyInteger('blocked')->default(0);

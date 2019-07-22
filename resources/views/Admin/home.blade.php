@@ -14,7 +14,7 @@
                                 </div>
                                 <p class="card-category">No Of Schools</p>
                                 <h4 class="card-title">Active
-                                    <small>{{ \App\Admin::where('type', 'school')->where('blocked', 0)->count() }}</small>
+                                    <small>{{ \App\Admin::where('type', 'School')->where('blocked', 0)->count() }}</small>
                                 </h4>
                             </div>
                             <div class="card-footer">
@@ -51,7 +51,7 @@
                                     <i class="material-icons">info_outline</i>
                                 </div>
                                 <p class="card-category">Blocked Schools</p>
-                                <h4 class="card-title">{{ \App\Admin::where('type', 'school')->where('blocked', 1)->count() }}</h4>
+                                <h4 class="card-title">{{ \App\Admin::where('type', 'School')->where('blocked', 1)->count() }}</h4>
                             </div>
                             <div class="card-footer">
                                 <div class="stats">

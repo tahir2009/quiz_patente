@@ -18,7 +18,7 @@ class SchoolAccountController extends Controller
      */
     public function index()
     {
-        $school_accounts = Admin::where('type', 'school')->get();
+        $school_accounts = Admin::where('type', 'School')->get();
         return view('admin.school_account.index')->with('school_accounts', $school_accounts);
     }
 
@@ -54,7 +54,7 @@ class SchoolAccountController extends Controller
             'nationalities' => 'required'
         ]);
         $request['password'] = bcrypt($request->password);
-        $request['type'] = 'school';
+        $request['type'] = 'School';
 
 
         $school_account = Admin::create($request->all());
@@ -68,10 +68,10 @@ class SchoolAccountController extends Controller
         }
         if ($school_account) {
             $alert['type'] = 'success';
-            $alert['message'] = 'school account created';
+            $alert['message'] = 'School account created';
         } else {
             $alert['type'] = 'danger';
-            $alert['message'] = 'school account not created';
+            $alert['message'] = 'School account not created';
         }
 
         return redirect()->route('school_account.index')->with('alert', $alert);
@@ -163,7 +163,7 @@ class SchoolAccountController extends Controller
         }
 
         $alert['type'] = 'success';
-        $alert['message'] = 'school account updated';
+        $alert['message'] = 'School account updated';
         return redirect()->route('school_account.index')->with('alert', $alert);
     }
 
@@ -179,7 +179,7 @@ class SchoolAccountController extends Controller
         $school_account->delete();
         $alert = [];
         $alert['type'] = 'success';
-        $alert['message'] = 'school account Deleted';
+        $alert['message'] = 'School account Deleted';
         return redirect()->route('school_account.index')->with('alert', $alert);
     }
 

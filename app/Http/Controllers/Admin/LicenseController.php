@@ -29,7 +29,7 @@ class LicenseController extends Controller
      */
     public function create()
     {
-        $school_accounts = Admin::where('type', 'school')->get();
+        $school_accounts = Admin::where('type', 'School')->get();
         $packages = Package::all();
 
         return view('admin.license.create')->with(['school_accounts' => $school_accounts, 'packages' => $packages]);

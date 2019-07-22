@@ -18,7 +18,7 @@ class StudentController extends Controller
     public function index()
     {
         $students = Student::all();
-        return view('school.student.index')->with('students', $students);
+        return view('School.student.index')->with('students', $students);
     }
 
     /**
@@ -30,7 +30,7 @@ class StudentController extends Controller
     {
         $countries = Country::all();
         $licenses = License::where('admin_id', auth()->user()->id)->get();
-        return view('school.student.create')->with(['countries' => $countries, 'licenses' => $licenses]);
+        return view('School.student.create')->with(['countries' => $countries, 'licenses' => $licenses]);
     }
 
     /**
@@ -81,7 +81,7 @@ class StudentController extends Controller
             }
         }
 
-        return view('school.student.view')->with(['student' => $student, 'licenses' => $licenses]);
+        return view('School.student.view')->with(['student' => $student, 'licenses' => $licenses]);
     }
 
     /**
@@ -93,7 +93,7 @@ class StudentController extends Controller
     public function edit(Student $student)
     {
         $countries = Country::all();
-        return view('school.student.edit')->with(['student' => $student, 'countries' => $countries]);
+        return view('School.student.edit')->with(['student' => $student, 'countries' => $countries]);
     }
 
     /**
@@ -170,6 +170,6 @@ class StudentController extends Controller
 
     public function stats(Student $student)
     {
-        return view('school.student.stats')->with('student', $student);
+        return view('School.student.stats')->with('student', $student);
     }
 }
