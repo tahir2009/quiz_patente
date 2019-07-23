@@ -109,17 +109,17 @@
                                             </div>
                                         </div>
                                     </div>
-{{--                                    <div class="col-md-6 col-sm-6 col-xs-12">--}}
-{{--                                        <div class="checkbox-column">--}}
-{{--                                            <div class="form-check">--}}
-{{--                                                <label class="form-check-label">--}}
-{{--                                                    <input class="form-check-input" type="checkbox" value="" checked>--}}
-{{--                                                    <span class="form-check-sign">--}}
-{{--                                <span class="check"></span>--}}
-{{--                              </span>--}}
-{{--                                                    <h6>for booking</h6>--}}
-{{--                                                </label>--}}
-{{--                                            </div>--}}
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="checkbox-column">
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" id="for_booking" type="checkbox" value="" checked>
+                                                    <span class="form-check-sign">
+                                <span class="check"></span>
+                              </span>
+                                                    <h6>for booking</h6>
+                                                </label>
+                                            </div>
 {{--                                            <div class="form-check">--}}
 {{--                                                <label class="form-check-label">--}}
 {{--                                                    <input class="form-check-input" type="checkbox" value="" checked>--}}
@@ -129,8 +129,8 @@
 {{--                                                    <h6>chat enable</h6>--}}
 {{--                                                </label>--}}
 {{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="clearfix"></div>
                                 <div class="row">

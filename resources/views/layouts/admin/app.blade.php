@@ -79,6 +79,12 @@
                             <p>Students</p>
                         </a>
                     </li>
+                    <li class="@yield('chat_nav')">
+                        <a class="nav-link" href="{{route('chat.create')}}">
+                            <i class="material-icons">notifications</i>
+                            <p>chat messenger</p>
+                        </a>
+                    </li>
                 @endif
             </ul>
         </div>
