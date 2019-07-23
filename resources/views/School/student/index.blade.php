@@ -12,7 +12,7 @@
                             <h4 class="card-title ">students</h4>
                             <p class="card-category">students list</p>
                         </div>
-                        <a href="create-account.html" class="btn pull-right">new student</a>
+                        <a href="{{route('student.create')}}" class="btn pull-right">new student</a>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -41,18 +41,19 @@
                                 </th>
                                 </thead>
                                 <tbody>
+                                @foreach($students as $index=>$student)
                                 <tr>
                                     <td>
-                                        1
+                                        {{++$index}}
                                     </td>
                                     <td>
-                                        rizwanulhaq
+                                        {{$student->first_name . " " . $student->last_name }}
                                     </td>
                                     <td>
-                                        rizwanulhaq@patentepertutti.it
+                                        {{$student->email}}
                                     </td>
                                     <td>
-                                        +0092123456788
+                                        {{$student->phone}}
                                     </td>
                                     <td>
                                         <a href="">view statistics</a>
@@ -66,57 +67,8 @@
                                         <a href="" class="btn-sm1"><i class="material-icons">delete</i></a>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        2
-                                    </td>
-                                    <td>
-                                        rizwanulhaq
-                                    </td>
-                                    <td>
-                                        rizwanulhaq@patentepertutti.it
-                                    </td>
-                                    <td>
-                                        +0092123456788
-                                    </td>
-                                    <td>
-                                        <a href="">view statistics</a>
-                                    </td>
-                                    <td>
-                                        <a href="student-licenses.html">view licenses</a>
-                                    </td>
-                                    <td>
-                                        <!-- <a href="macaddress.html" class="btn-sm1"><i class="material-icons">screen_lock_portrait</i></a>
-                                         -->
-                                        <a href="" class="btn-sm1"><i class="material-icons">edit</i></a>
-                                        <a href="" class="btn-sm1"><i class="material-icons">delete</i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        3
-                                    </td>
-                                    <td>
-                                        rizwanulhaq
-                                    </td>
-                                    <td>
-                                        rizwanulhaq@patentepertutti.it
-                                    </td>
-                                    <td>
-                                        +0092123456788
-                                    </td>
-                                    <td>
-                                        <a href="">view statistics</a>
-                                    </td>
-                                    <td>
-                                        <a href="student-licenses.html">view licenses</a>
-                                    </td>
-                                    <td>
-                                        <!-- <a href="macaddress.html" class="btn-sm1"><i class="material-icons">screen_lock_portrait</i></a>
-                                         --><a href="" class="btn-sm1"><i class="material-icons">edit</i></a>
-                                        <a href="" class="btn-sm1"><i class="material-icons">delete</i></a>
-                                    </td>
-                                </tr>
+                                    @endforeach
+
 
                                 </tbody>
                             </table>

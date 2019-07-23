@@ -14,13 +14,13 @@
                         </div>
                         <p class="card-category">No of students</p>
                         <h4 class="card-title">
-                            <small>1</small>
+                            <small>{{ auth()->user()->students()->count() }}</small>
                         </h4>
                     </div>
                     <div class="card-footer">
                         <div class="stats">
                             <i class="material-icons">store</i>
-                            <a href="tables.html">Click to view</a>
+                            <a href="{{ route('student.index') }}">Click to view</a>
                         </div>
                     </div>
                 </div>
@@ -33,12 +33,12 @@
                             <i class="material-icons">verified_user</i>
                         </div>
                         <p class="card-category">No Of Licenses</p>
-                        <h4 class="card-title">2</h4>
+                        <h4 class="card-title">{{ auth()->user()->licenses()->count() }}</h4>
                     </div>
                     <div class="card-footer">
                         <div class="stats">
                             <i class="material-icons">store</i>
-                            <a href="tables.html">Licenses</a>
+                            <a href="{{ route('student.index') }}">Licenses</a>
                         </div>
                     </div>
                 </div>
@@ -49,9 +49,23 @@
                         <div class="card-icon">
                             <i class="fa fa-tasks"></i>
                         </div>
+                        @php($sold_licenses = 0)
+                        @php($unsold_licenses = 0)
+                        @php($active_licenses = 0)
+                        @foreach(auth()->user()->licenses as $license)
+                            @if(empty(@$license->student[0]))
+                                @php($unsold_licenses++)
+                            @else
+                                @php($sold_licenses++)
+                            @endif
+
+                            @if(@$license->student[0]->pivot->started_at)
+                                @php($active_licenses++)
+                            @endif
+                        @endforeach
                         <p class="card-category">Active License</p>
                         <h4 class="card-title">
-                            <small>2</small>
+                            <small>{{ $active_licenses }}</small>
                         </h4>
                     </div>
                     <div class="card-footer">
@@ -69,7 +83,7 @@
                             <i class="material-icons">info_outline</i>
                         </div>
                         <p class="card-category">Unsold License</p>
-                        <h4 class="card-title">0</h4>
+                        <h4 class="card-title">{{ $unsold_licenses }}</h4>
                     </div>
                     <div class="card-footer">
                         <div class="stats">
@@ -87,7 +101,7 @@
                         </div>
                         <p class="card-category">Sold License</p>
                         <h4 class="card-title">
-                            <small>1</small>
+                            <small>{{ $sold_licenses }}</small>
                         </h4>
                     </div>
                     <div class="card-footer">
