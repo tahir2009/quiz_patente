@@ -59,7 +59,7 @@
                                         <a href="">view statistics</a>
                                     </td>
                                     <td>
-                                        <a href="student-licenses.html">view licenses</a>
+                                        <a href="{{route('student.show',$student->id)}}">view licenses</a>
                                     </td>
                                     <td>
                                         <!-- <a href="macaddress.html" class="btn-sm1"><i class="material-icons">screen_lock_portrait</i></a> -->

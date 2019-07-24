@@ -52,8 +52,8 @@ class StudentController extends Controller
 
         $request['admin_id'] = auth()->user()->id;
         $request['password'] = bcrypt($request->password);
-        if ($request->radios === 'flat_rate_radio') {
-        }
+        $for_booking=input::has('for_booking') ? true : false;
+
 
         $student = Student::create($request->all());
 

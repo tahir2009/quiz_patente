@@ -85,6 +85,12 @@
                             <p>chat messenger</p>
                         </a>
                     </li>
+                    <li class="@yield('license_nav')">
+                        <a class="nav-link" href="{{route('school_license.index')}}">
+                            <i class="material-icons">language</i>
+                            <p>licenses</p>
+                        </a>
+                    </li>
                 @endif
             </ul>
         </div>
