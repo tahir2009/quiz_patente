@@ -79,6 +79,12 @@
                             <p>Students</p>
                         </a>
                     </li>
+                    <li class="@yield('instructor_nav')">
+                        <a class="nav-link" href="{{route('instructor.index')}}">
+                            <i class="material-icons">person</i>
+                            <p>instructor</p>
+                        </a>
+                    </li>
                     <li class="@yield('chat_nav')">
                         <a class="nav-link" href="{{route('chat.create')}}">
                             <i class="material-icons">notifications</i>

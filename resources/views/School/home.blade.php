@@ -71,7 +71,7 @@
                     <div class="card-footer">
                         <div class="stats">
                             <i class="material-icons">store</i>
-                            <a href="tables.html">Click to view</a>
+                            <a href="{{ route('student.index') }}">Click to view</a>
                         </div>
                     </div>
                 </div>
@@ -88,7 +88,7 @@
                     <div class="card-footer">
                         <div class="stats">
                             <i class="material-icons">store</i>
-                            <a href="tables.html">Click to view</a>
+                            <a href="{{ route('student.index') }}">Click to view</a>
                         </div>
                     </div>
                 </div>
@@ -107,7 +107,7 @@
                     <div class="card-footer">
                         <div class="stats">
                             <i class="material-icons">store</i>
-                            <a href="tables.html">Click to view</a>
+                            <a href="{{ route('student.index') }}">Click to view</a>
                         </div>
                     </div>
                 </div>
@@ -126,7 +126,7 @@
                     <div class="card-footer">
                         <div class="stats">
                             <i class="material-icons">store</i>
-                            <a href="tables.html">Click to view</a>
+                            <a href="{{ route('student.index') }}">Click to view</a>
                         </div>
                     </div>
                 </div>
