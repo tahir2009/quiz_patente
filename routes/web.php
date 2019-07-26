@@ -38,6 +38,7 @@ Route::group(['prefix' => 'school', 'namespace' => 'School','middleware' => ['au
     Route::get('student/statistics/{student}', 'StudentController@stats')->name('student.stats');
     Route::post('assign_license/{student}', 'StudentController@assign_license')->name('student.assign_license');
     Route::resource('chat','ChatController');
+    Route::resource('instructor','InstructorController');
 
 });
 

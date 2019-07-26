@@ -69,6 +69,7 @@
                                             <input type="password" value="{{ old('password_confirmation') }}"
                                                    name="password_confirmation"
                                                    class="form-control  {{ $errors->has('password_confirmation') ? ' is-invalid' : '' }}">
+
                                             @if($errors->has('password_confirmation'))
                                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $errors->first('password_confirmation') }}</strong>
